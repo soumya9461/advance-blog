@@ -1,0 +1,42 @@
+{%  extends 'blog/main.html' %}
+
+{% block content %}
+
+<style>
+	.profile-pic{
+		max-width: 200px;
+		max-height:200px;
+		margin: 0 auto;
+		border-radius: 50%;
+	}
+</style>
+
+<br>
+<div class="row">
+	<div class="col-sm-2">
+		<div class="card card-body">
+			<h5>Profile Picture:</h5>
+			<hr>
+			<p><img class="profile-pic" src="{{request.user.profile.profile_pic.url}}" ></p>
+		</div>
+	</div>
+
+	<div class="col-sm-8">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+            <hr>
+            <p>Name: {{request.user.profile.name}}</p>
+			<p>Email: {{request.user.profile.email}}</p>
+            <p>Phone: {{request.user.profile.phone}}</p>
+            <hr>
+            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'blog:account' %}">Update Profile</a>
+		</div>
+    </div>
+    
+</div>
+
+
+
+
+
+{% endblock %}
